@@ -9,14 +9,20 @@
   <body>
     <main>
       <div class="background">
-        <div class="heartbeat" id="heartbeat"></div>
+     <svg class="heartbeat-svg" viewBox="0 0 2000 200" preserveAspectRatio="none">
+      <polyline id="line1" fill="none" stroke="#0f0" stroke-width="2" />
+    </svg>
+    <svg class="heartbeat-svg" viewBox="0 0 2000 200" preserveAspectRatio="none">
+      <polyline id="line2" fill="none" stroke="#0f0" stroke-width="2" />
+    </svg>
       </div>
 
-      <section class="login-container" id="loginCOntainer">
+      <section class="login-container" id="loginContainer">
         <h2>Login</h2>
         <input type="text" id="username" placeholder="Usuário" />
-        <input type="text" id="password" placeholder="Senha" />
+        <input type="password" id="password" placeholder="Senha" />
         <button onclick="validateLogin()">Entrar</button>
+        <p class="error-message" id="errorMessage">Credenciais inválidas</p>
       </section>
     </main>
 

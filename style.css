@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #000;
+  overflow: hidden;
+}
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.heartbeat-svg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 200%;
+  height: 200px;
+  transform: translateY(-50%);
+  animation: scrollLine 10s linear infinite;
+  opacity: 0.4;
+}
+
+.heartbeat-svg:nth-child(2) {
+  left: 100%;
+}
+
+@keyframes scrollLine {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  text-align: center;
+  z-index: 1;
+  width: 300px;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0f0;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.9s;
+}
+
+.login-container button:hover {
+  background-color: #0c0;
+}
+
+.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0% { transform: translate(-50%, -50%) translateX(0); }
+  25% { transform: translate(-50%, -50%) translateX(-5px); }
+  50% { transform: translate(-50%, -50%) translateX(5px); }
+  75% { transform: translate(-50%, -50%) translateX(-5px); }
+  100% { transform: translate(-50%, -50%) translateX(0); }
+}
+
+@keyframes pulseLine {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  25% {
+    transform: scaleY(1.7);
+  }
+  50% {
+    transform: scaleY(0.7);
+  }
+  75% {
+    transform: scaleY(1.3);
+  }
+}
+
+.heartbeat-svg.oscillate {
+  animation: scrollLine 4s linear infinite, pulseLine 0.3s ease-in-out 3;
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-top: 10px;
+  display: none; /* só aparece se der erro */
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
